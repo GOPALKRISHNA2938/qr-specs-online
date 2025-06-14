@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Eye, ShoppingCart, Star, QrCode, MessageSquare, Phone, Mail, Instagram, Facebook, Twitter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -9,10 +8,12 @@ import { useToast } from '@/hooks/use-toast';
 import QRCodeComponent from '@/components/QRCodeComponent';
 import ProductCard from '@/components/ProductCard';
 import WhatsAppPayment from '@/components/WhatsAppPayment';
+import Categories from '@/components/Categories';
 
 const Index = () => {
   const { toast } = useToast();
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [showCategories, setShowCategories] = useState(false);
 
   const products = [
     {
@@ -94,6 +95,14 @@ const Index = () => {
     });
   };
 
+  const handleCategorySelect = (category: string, subcategory: string) => {
+    toast({
+      title: "Category Selected",
+      description: `Browsing ${subcategory} for ${category.replace('him', 'Men').replace('her', 'Women').replace('kids', 'Kids')}`,
+    });
+    // Here you would typically filter products or navigate to a category page
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
@@ -148,7 +157,11 @@ const Index = () => {
               Experience seamless shopping with WhatsApp payments.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button size="lg" className="px-8 py-3 text-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
+              <Button 
+                size="lg" 
+                className="px-8 py-3 text-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+                onClick={() => setShowCategories(true)}
+              >
                 Shop Collection
               </Button>
               <Dialog>
@@ -300,6 +313,13 @@ const Index = () => {
           <p className="text-sm text-gray-500">Premium spectacles for the modern world</p>
         </div>
       </footer>
+
+      {/* Categories Modal */}
+      <Categories
+        isOpen={showCategories}
+        onClose={() => setShowCategories(false)}
+        onCategorySelect={handleCategorySelect}
+      />
 
       {/* WhatsApp Payment Modal */}
       {selectedProduct && (
