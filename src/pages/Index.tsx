@@ -11,6 +11,7 @@ import ProductCard from '@/components/ProductCard';
 import WhatsAppPayment from '@/components/WhatsAppPayment';
 import Categories from '@/components/Categories';
 import ProductList from '@/components/ProductList';
+import ScrollingCarousel from '@/components/ScrollingCarousel';
 
 const Index = () => {
   const { toast } = useToast();
@@ -96,7 +97,7 @@ const Index = () => {
   const handleQRScan = () => {
     toast({
       title: "Welcome!",
-      description: "You've successfully accessed Eyecare 360 via QR code!",
+      description: "You've successfully accessed VisionCraft via QR code!",
     });
   };
 
@@ -121,7 +122,7 @@ const Index = () => {
             <div className="flex items-center space-x-2">
               <Eye className="h-8 w-8 text-blue-600" />
               <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Eyecare 360
+                VisionCraft
               </h1>
             </div>
             <nav className="hidden md:flex items-center space-x-6">
@@ -151,19 +152,22 @@ const Index = () => {
         </div>
       </header>
 
+      {/* Scrolling Carousel */}
+      <ScrollingCarousel />
+
       {/* Hero Section */}
       <section id="home" className="py-20 px-4">
         <div className="container mx-auto text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Your Vision,
+              Crafting Vision,
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent block">
-                Our Priority
+                Perfecting Style
               </span>
             </h2>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Welcome to Eyecare 360 - Your one stop solution for your eyes. 
-              Discover our premium collection of spectacles designed for style, comfort, and clarity.
+              Welcome to VisionCraft - Where premium eyewear meets exceptional craftsmanship. 
+              Discover our curated collection of spectacles designed for style, comfort, and clarity.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button 
@@ -184,7 +188,7 @@ const Index = () => {
                   <DialogHeader>
                     <DialogTitle>Store Access QR Code</DialogTitle>
                     <DialogDescription>
-                      Scan this code to access Eyecare 360 instantly
+                      Scan this code to access VisionCraft instantly
                     </DialogDescription>
                   </DialogHeader>
                   <QRCodeComponent onScan={handleQRScan} />
@@ -222,15 +226,15 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-4xl font-bold text-gray-900 mb-6">Why Choose Eyecare 360?</h3>
+              <h3 className="text-4xl font-bold text-gray-900 mb-6">Why Choose VisionCraft?</h3>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="bg-blue-100 p-3 rounded-full">
                     <Eye className="h-6 w-6 text-blue-600" />
                   </div>
                   <div>
-                    <h4 className="text-xl font-semibold mb-2">Complete Eye Care</h4>
-                    <p className="text-gray-600">Your one stop solution for all your eye care needs with premium quality eyewear.</p>
+                    <h4 className="text-xl font-semibold mb-2">Premium Craftsmanship</h4>
+                    <p className="text-gray-600">Every frame is meticulously crafted with attention to detail and quality materials.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -270,7 +274,7 @@ const Index = () => {
         <div className="container mx-auto text-center">
           <h3 className="text-4xl font-bold mb-8">Get in Touch</h3>
           <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-            Have questions about our eyecare solutions or need help choosing the perfect pair? We're here to help!
+            Have questions about our eyewear or need help choosing the perfect pair? We're here to help!
           </p>
           
           <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -292,7 +296,7 @@ const Index = () => {
               <div className="bg-purple-600 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <MessageSquare className="h-8 w-8" />
               </div>
-              <h4 className="text-xl font-semibold mb-2">WhatsApp</h4>
+              <h4 className="text-xl font-semibent mb-2">WhatsApp</h4>
               <p className="text-gray-300">+1 (555) 987-6543</p>
             </div>
           </div>
@@ -316,10 +320,10 @@ const Index = () => {
         <div className="container mx-auto text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Eye className="h-6 w-6 text-blue-400" />
-            <span className="text-xl font-bold">Eyecare 360</span>
+            <span className="text-xl font-bold">VisionCraft</span>
           </div>
-          <p className="text-gray-400 mb-4">© 2024 Eyecare 360. All rights reserved.</p>
-          <p className="text-sm text-gray-500">Your one stop solution for your eyes</p>
+          <p className="text-gray-400 mb-4">© 2024 VisionCraft. All rights reserved.</p>
+          <p className="text-sm text-gray-500">Crafting Vision, Perfecting Style</p>
         </div>
       </footer>
 
