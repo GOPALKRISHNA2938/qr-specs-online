@@ -14,40 +14,42 @@ const ScrollingCarousel = () => {
   ];
 
   return (
-    <div className="w-full overflow-hidden bg-gradient-to-r from-blue-50 to-purple-50 py-8">
-      <div className="flex animate-[scroll_30s_linear_infinite] hover:pause">
-        {/* First set of images */}
-        {eyewearImages.map((image, index) => (
-          <div
-            key={`first-${index}`}
-            className="flex-shrink-0 mx-4 group cursor-pointer"
-          >
-            <div className="w-32 h-32 rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
-              <img
-                src={image}
-                alt={`Eyewear ${index + 1}`}
-                className="w-full h-full object-cover"
-              />
+    <>
+      <div className="w-full overflow-hidden bg-gradient-to-r from-blue-50 to-purple-50 py-8">
+        <div className="flex animate-[scroll_30s_linear_infinite] hover:pause">
+          {/* First set of images */}
+          {eyewearImages.map((image, index) => (
+            <div
+              key={`first-${index}`}
+              className="flex-shrink-0 mx-4 group cursor-pointer"
+            >
+              <div className="w-32 h-32 rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+                <img
+                  src={image}
+                  alt={`Eyewear ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
-          </div>
-        ))}
-        {/* Duplicate set for seamless loop */}
-        {eyewearImages.map((image, index) => (
-          <div
-            key={`second-${index}`}
-            className="flex-shrink-0 mx-4 group cursor-pointer"
-          >
-            <div className="w-32 h-32 rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
-              <img
-                src={image}
-                alt={`Eyewear ${index + 1}`}
-                className="w-full h-full object-cover"
-              />
+          ))}
+          {/* Duplicate set for seamless loop */}
+          {eyewearImages.map((image, index) => (
+            <div
+              key={`second-${index}`}
+              className="flex-shrink-0 mx-4 group cursor-pointer"
+            >
+              <div className="w-32 h-32 rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+                <img
+                  src={image}
+                  alt={`Eyewear ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-      <style jsx>{`
+      <style>{`
         @keyframes scroll {
           0% {
             transform: translateX(0);
@@ -60,7 +62,7 @@ const ScrollingCarousel = () => {
           animation-play-state: paused;
         }
       `}</style>
-    </div>
+    </>
   );
 };
 
