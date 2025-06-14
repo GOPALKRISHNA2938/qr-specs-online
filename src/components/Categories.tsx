@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -34,7 +33,7 @@ const Categories: React.FC<CategoriesProps> = ({ isOpen, onClose, onCategorySele
       title: 'For Kids',
       icon: Baby,
       description: 'Fun and safe eyewear for children',
-      image: 'https://images.unsplash.com/photo-1551818255-e6e10975e00f?w=400&q=80'
+      image: 'https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=400&q=80'
     }
   ];
 
