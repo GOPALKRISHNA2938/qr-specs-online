@@ -87,7 +87,6 @@ const Categories: React.FC<CategoriesProps> = ({ isOpen, onClose, onCategorySele
                       className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
                       onClick={() => {
                         onCategorySelect(category.id, subcategory.id);
-                        onClose();
                       }}
                     >
                       <CardHeader className="p-0">

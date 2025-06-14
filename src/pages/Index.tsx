@@ -9,11 +9,15 @@ import QRCodeComponent from '@/components/QRCodeComponent';
 import ProductCard from '@/components/ProductCard';
 import WhatsAppPayment from '@/components/WhatsAppPayment';
 import Categories from '@/components/Categories';
+import ProductList from '@/components/ProductList';
 
 const Index = () => {
   const { toast } = useToast();
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showCategories, setShowCategories] = useState(false);
+  const [showProductList, setShowProductList] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedSubcategory, setSelectedSubcategory] = useState('');
 
   const products = [
     {
@@ -96,11 +100,15 @@ const Index = () => {
   };
 
   const handleCategorySelect = (category: string, subcategory: string) => {
+    setSelectedCategory(category);
+    setSelectedSubcategory(subcategory);
+    setShowCategories(false);
+    setShowProductList(true);
+    
     toast({
       title: "Category Selected",
       description: `Browsing ${subcategory} for ${category.replace('him', 'Men').replace('her', 'Women').replace('kids', 'Kids')}`,
     });
-    // Here you would typically filter products or navigate to a category page
   };
 
   return (
@@ -319,6 +327,15 @@ const Index = () => {
         isOpen={showCategories}
         onClose={() => setShowCategories(false)}
         onCategorySelect={handleCategorySelect}
+      />
+
+      {/* Product List Modal */}
+      <ProductList
+        isOpen={showProductList}
+        onClose={() => setShowProductList(false)}
+        category={selectedCategory}
+        subcategory={selectedSubcategory}
+        onPurchase={handlePurchase}
       />
 
       {/* WhatsApp Payment Modal */}
